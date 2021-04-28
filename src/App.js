@@ -1,7 +1,15 @@
-import logo from "./logo.svg";
+import Sidebar from './features/sidebar'
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
-  return <div>App</div>;
+  return (
+    <div className="flex">
+      <Sidebar />
+      <Switch>
+        <Route path="/" exact></Route>
+      </Switch>
+    </div>
+  )
 }
 
-export default App;
+export default App

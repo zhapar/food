@@ -1,0 +1,35 @@
+.logo {
+  background-color: rgba(#EB966A, 0.26);
+  @apply p-3
+}
+
+.activeNavlink {
+  @apply bg-base-dark-1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../icons/navTop.svg');
+    width: 12px;
+    height: 12px;
+    top: -12px;
+    right: 0;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    background-image: url('../../icons/navBottom.svg');
+    width: 12px;
+    height: 12px;
+    bottom: -10px;
+    right: 0;
+  }
+
+  .navLink {
+    @apply bg-primary;
+
+    svg {
+      @apply text-white;
+    }
+  }
+}
