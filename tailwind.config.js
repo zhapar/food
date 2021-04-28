@@ -58,6 +58,12 @@ module.exports = {
         "1/2": "50%",
         "3/4": "75%",
       },
+      width: {
+        110: "110px",
+      },
+      height: {
+        70: "70px",
+      },
     },
   },
   variants: {
