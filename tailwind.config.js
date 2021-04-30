@@ -25,6 +25,7 @@ module.exports = {
     },
     colors: {
       primary: "#EA7C69",
+      primaryOpacity: "rgba(234, 124, 105, 0.26)",
       secondary: "#9288E0",
       white: "#fff",
       text: {
@@ -60,9 +61,11 @@ module.exports = {
       },
       width: {
         110: "110px",
+        fit: "fit-content",
       },
       height: {
         70: "70px",
+        fit: "fit-content",
       },
     },
   },

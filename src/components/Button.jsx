@@ -6,7 +6,7 @@ const Button = ({ children, type }) => {
     <>
       <button
         className={cn(
-          "py-3 px-7 rounded border-2 border-primary shadow transition duration-150 font-semibold",
+          "flex justify-center items-center h-fit  py-3 px-7 rounded border-2 border-primary shadow transition duration-150 font-semibold",
           {
             "bg-primary hover:bg-base-dark-1 hover:text-primary":
               type === "primary",
