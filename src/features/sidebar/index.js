@@ -12,7 +12,7 @@ import { ReactComponent as Store } from '../../icons/store.svg'
 export default function Nav() {
   return (
     <nav
-      className="pl-2 pt-2 2xl:pl-3 2xl:pt-3 flex flex-col w-auto bg-base-dark-2 h-screen fixed top-0 left-0"
+      className="pl-2 pt-2 2xl:pl-3 2xl:pt-3 flex flex-col w-auto bg-base-dark-2 h-full"
       // style={{ width: 104 }}
     >
       <div className="m-2 mr-3 2xl:m-3 2xl:mr-4 flex justify-center items-center rounded-l relative bg-base-dark-2">
