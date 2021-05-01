@@ -1,0 +1,41 @@
+import React, { useState } from "react";
+import cn from "classnames";
+
+// ICONS
+import { ReactComponent as CardIcon } from "../icons/card.svg";
+import { ReactComponent as CheckIcon } from "../icons/checkmark-circle.svg";
+import { ReactComponent as PayPalIcon } from "../icons/paypal.svg";
+
+const Card = ({ type, active = false, onClick }) => {
+  return (
+    <div
+      className={cn(
+        "relative w-110 h-70 text-sm bg-base-dark-2 flex flex-col items-center justify-center rounded cursor-pointer hover:bg-base-dark-1 border-2 font-medium",
+        {
+          "border-white text-white": active,
+          "border-text-dark text-text-light ": !active,
+        }
+      )}
+      onClick={onClick}
+    >
+      <CheckIcon
+        className={cn("absolute right-2 top-2", {
+          "opacity-0": !active,
+          "opacity-100": active,
+        })}
+      />
+      <span className="mb-2">
+        {type === "paypal" ? (
+          <PayPalIcon className="stroke-current" />
+        ) : type === "card" ? (
+          <CardIcon className="fill-current" />
+        ) : (
+          ""
+        )}
+      </span>
+      <span>{type === "paypal" ? "PayPal" : "Credit Card"}</span>
+    </div>
+  );
+};
+
+export default Card;
