@@ -4,6 +4,7 @@ import Payment from './features/payment/payment'
 import Button from './components/Button'
 import Input from './components/Input'
 import SettingItem from './components/SettingItem'
+import Select from './components/Select'
 
 function App() {
   return (
