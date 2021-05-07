@@ -3,25 +3,20 @@ import { Switch, Route } from "react-router-dom";
 import Payment from "./features/payment/payment";
 import Button from "./components/Button";
 import Input from "./components/Input";
-import Setting from "./components/Setting";
-import DishCard from "./components/DishCard";
+import SettingItem from "./components/SettingItem";
+import Select from "./components/Select";
 
 function App() {
   return (
-    <div className="flex">
-      <Sidebar />
-      <Switch>
-        <Route path="/" exact>
-          <div className="grid grid-cols-5 w-full gap-4 w">
-            <DishCard />
-            <DishCard />
-            <DishCard />
-            <DishCard />
-            <DishCard />
-            <DishCard />
-          </div>
-        </Route>
-      </Switch>
+    <div className="flex overflow-hidden relative w-full flex-1 h-screen">
+      <header className="sticky top-0 h-full">
+        <Sidebar />
+      </header>
+      <main className="flex-grow h-full overflow-auto overflow-x-hidden relative">
+        <Switch>
+          <Route path="/" exact></Route>
+        </Switch>
+      </main>
     </div>
   );
 }

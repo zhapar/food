@@ -12,12 +12,12 @@ import { ReactComponent as Store } from '../../icons/store.svg'
 export default function Nav() {
   return (
     <nav
-      className="pl-3 pt-3 flex flex-col w-auto bg-base-dark-2 h-full min-h-screen"
+      className="pl-2 pt-2 2xl:pl-3 2xl:pt-3 flex flex-col w-auto bg-base-dark-2 h-full"
       // style={{ width: 104 }}
     >
-      <div className="m-3 mr-6 flex justify-center items-center rounded-l relative bg-base-dark-2">
-        <div className=" w-14 h-14 flex justify-center items-center rounded logo">
-          <Store className="w-10 h-10" />
+      <div className="m-2 mr-3 2xl:m-3 2xl:mr-4 flex justify-center items-center rounded-l relative bg-base-dark-2">
+        <div className="w-10 h-10 2xl:w-12 2xl:h-12 flex justify-center items-center rounded logo">
+          <Store className="w-7 h-7 2xl:w-9 2xl:h-9" />
         </div>
       </div>
       <Link to="/" Icon={Home} />
@@ -26,7 +26,7 @@ export default function Nav() {
       <Link to="/messages" Icon={Message} />
       <Link to="/notifications" Icon={Notification} />
       <Link to="/setting" Icon={Setting} />
-      {/* <Link to="/logout" Icon={Logout} /> */}
+      <Link to="/logout" Icon={Logout} />
     </nav>
   )
 }

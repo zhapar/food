@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 //Icons
-import { ReactComponent as SecurityIcon } from "../icons/security.svg";
-import { ReactComponent as AppearanceIcon } from "../icons/appearance.svg";
+import { ReactComponent as SecurityIcon } from '../icons/security.svg'
+import { ReactComponent as AppearanceIcon } from '../icons/appearance.svg'
 
-const Setting = ({ text, caption }) => {
+const SettingItem = ({ text, caption }) => {
   return (
     <div className="group overflow-hidden relative w-full flex px-7 py-6 h-fit hover:bg-primaryOpacity transition duration-100">
       <div className="mr-3">
@@ -20,7 +20,7 @@ const Setting = ({ text, caption }) => {
       </div>
       <span className="w-1 h-8 bg-primary absolute -right-2 group-hover:-translate-x-2 top-2/4 transform -translate-y-2/4 rounded transition duration-300"></span>
     </div>
-  );
-};
+  )
+}
 
-export default Setting;
+export default SettingItem
