@@ -5,6 +5,8 @@ import Button from "./components/Button";
 import Input from "./components/Input";
 import SettingItem from "./components/SettingItem";
 import Select from "./components/Select";
+import DishCard from "./components/DishCard";
+import CardDishFull from "./components/CardDishFull";
 
 function App() {
   return (
