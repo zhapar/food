@@ -67,6 +67,9 @@ module.exports = {
         70: "70px",
         fit: "fit-content",
       },
+      zIndex: {
+        "-1": "-1",
+      },
     },
   },
   variants: {
