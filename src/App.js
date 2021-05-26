@@ -1,12 +1,13 @@
-import Sidebar from "./features/sidebar";
-import { Switch, Route } from "react-router-dom";
-import Payment from "./features/payment/payment";
-import Button from "./components/Button";
-import Input from "./components/Input";
-import SettingItem from "./components/SettingItem";
-import Select from "./components/Select";
-import DishCard from "./components/DishCard";
-import CardDishFull from "./components/CardDishFull";
+import Sidebar from './features/sidebar'
+import { Switch, Route } from 'react-router-dom'
+import Payment from './features/payment/payment'
+import Button from './components/Button'
+import Input from './components/Input'
+import SettingItem from './components/SettingItem'
+import Select from './components/Select'
+import DishCard from './components/DishCard'
+import CardDishFull from './components/CardDishFull'
+import CartItem from './components/CartItem'
 
 function App() {
   return (
@@ -16,11 +17,15 @@ function App() {
       </header>
       <main className="flex-grow h-full overflow-auto overflow-x-hidden relative">
         <Switch>
-          <Route path="/" exact></Route>
+          <Route path="/" exact>
+            <div className="flex justify-start mx-5 ">
+              <CartItem />
+            </div>
+          </Route>
         </Switch>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

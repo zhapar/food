@@ -2,7 +2,7 @@ import React from 'react'
 import { ReactComponent as Search } from '../icons/search.svg'
 import cn from 'classnames'
 
-const Input = ({ placeholder, type = 'text', name, id }) => {
+const Input = ({ placeholder, type = 'text', name, id, className }) => {
   return (
     <div className="flex w-full">
       {type === 'search' && (
@@ -16,10 +16,14 @@ const Input = ({ placeholder, type = 'text', name, id }) => {
         type={type}
         name={name}
         id={id || name}
-        className={cn('bg-base-form w-full', {
-          'rounded p-3': type !== 'search',
-          'rounded-r py-3 pr-3 pl-2': type === 'search',
-        })}
+        className={cn(
+          'bg-base-form w-full',
+          {
+            'rounded p-3': type !== 'search',
+            'rounded-r py-3 pr-3 pl-2': type === 'search',
+          },
+          className
+        )}
         placeholder={placeholder}
       />
     </div>
