@@ -12,17 +12,15 @@ export default function Select({ options, selected }) {
         <AngleDown className="w-5 h-5 fill-current text-white mr-2" />
         {selectedOption}
       </Listbox.Button>
-      <Listbox.Options className="bg-base-dark-2 rounded mt-1 overflow-hidden">
+      <Listbox.Options className="bg-base-dark-2 rounded mt-1 overflow-hidden absolute z-10">
         {options.map((option) => (
           <Listbox.Option key={option} value={option}>
             {({ active, selected }) => (
               <li
-                className={`p-3.5 flex items-center outline-none focus:outline-none  truncate w-full ${
+                className={`p-3.5 flex items-center outline-none focus:outline-none cursor-pointer truncate w-full ${
                   active ? 'bg-base-dark-line' : 'bg-base-dark-2'
                 }`}>
-                {selected && (
-                  <Checkmark className="text-accent-red mr-2 fill-current" />
-                )}
+                {selected && <Checkmark className="text-accent-red mr-2" />}
                 {option}
               </li>
             )}

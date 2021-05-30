@@ -1,27 +1,24 @@
 import React from 'react'
-import DishImg from '../images/dish-1.png'
 import Input from './Input'
 import { ReactComponent as Trash } from '../icons/trash.svg'
 
-export default function CartItem() {
+export default function CartItem({ name, image, price, available }) {
   return (
     <div className="flex space-x-4 w-full">
       <div className="flex flex-col flex-grow">
         <div className="flex items-center mb-2.5 justify-between">
           <div className="flex space-x-2">
-            <img src={DishImg} alt="" className="w-11" />
+            <img src={image} alt="" className="w-11" />
             <div className="flex flex-col justify-between max-w-120">
-              <p className="text-white text-base truncate">
-                Spicy seasoned seafood noodles
-              </p>
-              <span className="text-sm text-text-gray">$ 2.29</span>
+              <p className="text-white text-base truncate">{name}</p>
+              <span className="text-sm text-text-gray">$ {price}</span>
             </div>
           </div>
           <div className="text-lg text-white bg-base-form w-12 h-12 flex justify-center items-center rounded font-medium">
-            2
+            {available}
           </div>
         </div>
-        <Input placeholder="Order Note" className="h-12" />
+        <Input placeholder="Order Note..." className="h-12" />
       </div>
       <div className="flex flex-col justify-between">
         <span className="text-white text-lg flex justify-center items-center w-12 h-12 font-medium">

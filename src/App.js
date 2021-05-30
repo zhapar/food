@@ -8,6 +8,7 @@ import Select from './components/Select'
 import DishCard from './components/DishCard'
 import CardDishFull from './components/CardDishFull'
 import CartItem from './components/CartItem'
+import Home from './pages/Home'
 
 function App() {
   return (
@@ -17,11 +18,7 @@ function App() {
       </header>
       <main className="flex-grow h-full overflow-auto overflow-x-hidden relative">
         <Switch>
-          <Route path="/" exact>
-            <div className="flex justify-start mx-5 ">
-              <CartItem />
-            </div>
-          </Route>
+          <Route path="/" exact component={Home} />
         </Switch>
       </main>
     </div>

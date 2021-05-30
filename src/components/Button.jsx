@@ -1,23 +1,30 @@
-import React from "react";
-import cn from "classnames";
+import React from 'react'
+import cn from 'classnames'
 
-const Button = ({ children, type }) => {
+const Button = ({
+  children,
+  type = 'secondary',
+  borderColor = 'border-primary',
+  onClick,
+  className,
+}) => {
   return (
     <>
       <button
         className={cn(
-          "flex justify-center items-center h-fit  py-3 px-7 rounded border-2 border-primary shadow transition duration-150 font-semibold",
+          'flex justify-center items-center h-fit  py-2 px-3 rounded border-2 shadow transition duration-150 font-semibold hover:border-primary',
           {
-            "bg-primary hover:bg-base-dark-1 hover:text-primary":
-              type === "primary",
+            'bg-primary border-primary hover:opacity-95': type === 'primary',
+            [`bg-transparent hover:bg-primary hover:text-white text-primary ${borderColor}`]:
+              type === 'secondary',
           },
-          { "bg-transparent hover:opacity-80 px-12": type === "secondary" }
+          className
         )}
-      >
+        onClick={onClick}>
         {children}
       </button>
     </>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

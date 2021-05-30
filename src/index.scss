@@ -33,6 +33,10 @@ code {
   h2 {
     @apply text-xl font-semibold;
   }
+
+  button {
+    @apply outline-none focus:outline-none
+  }
 }
 
 @layer utilities {
