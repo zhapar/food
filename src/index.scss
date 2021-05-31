@@ -35,7 +35,7 @@ code {
   }
 
   button {
-    @apply outline-none focus:outline-none
+    @apply outline-none focus:outline-none;
   }
 }
 
@@ -52,4 +52,19 @@ code {
       backdrop-filter: blur(2em) saturate(180%);
     }
   }
+}
+
+//scrollbar
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1f1d2b;
 }
