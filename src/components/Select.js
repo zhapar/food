@@ -9,7 +9,7 @@ export default function Select({ options, selected }) {
   return (
     <div>
       <Listbox value={selectedOption} onChange={setSelectedOption}>
-        <Listbox.Button className="px-3.5 py-2.5 flex items-center outline-none focus:outline-none bg-base-dark-2 rounded truncate border w-min border-base-dark-line">
+        <Listbox.Button className="px-3 py-2 sm:px-3.5 sm:py-2.5 flex items-center outline-none focus:outline-none bg-base-dark-2 rounded truncate border w-min border-base-dark-line">
           <AngleDown className="w-5 h-5 fill-current text-white mr-2" />
           {selectedOption}
         </Listbox.Button>

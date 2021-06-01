@@ -204,9 +204,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       <div className="p-4 sm:p-6 flex flex-col flex-grow">
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 justify-between items-center border-b pb-5 border-base-dark-line">
+        <div className="flex flex-row sm:flex-row space-y-4 sm:space-y-0 justify-between items-center border-b pb-5 border-base-dark-line">
           <div className="flex flex-col">
             <h1>Dashboard</h1>
             <span className="text-lg text-text-lighter">
@@ -215,24 +215,24 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="flex flex-col mt-6">
-          <div className="grid grid-flow-col gap-10 mb-7">
+          <div className="grid grid-flow-row gap-5 sm:grid-flow-col sm:gap-4 mb-7">
             {salesRate.map((rate, idx) => (
               <SalesRateCard key={idx} rate={rate} />
             ))}
           </div>
           <div className="flex flex-col bg-base-dark-2 rounded">
-            <div className="p-6 flex justify-between">
-              <h1>Order Report</h1>
-              <button className="flex items-center border rounded border-text-dark p-3 hover:bg-primary transition duration-200">
+            <div className="py-6 px-3 sm:p-6  flex justify-between items-center">
+              <h1 className="text-lg">Order Report</h1>
+              <button className="flex items-center border rounded border-text-dark p-2 sm:p-3 hover:bg-primary transition duration-200">
                 <Option className="fill-current" />
-                <span className="ml-2 text-base"> Filter Order</span>
+                <span className="ml-2 text-sm sm:text-base"> Filter Order</span>
               </button>
             </div>
-            <div className="grid grid-cols-4 gap-5 p-6 border-b border-base-dark-line">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 p-6 border-b border-base-dark-line">
               <h3>Customer</h3>
-              <h3>Menu</h3>
-              <h3>Total Payment</h3>
-              <h3>Status</h3>
+              <h3 className="hidden sm:block">Menu</h3>
+              <h3 className="hidden sm:block">Total Payment</h3>
+              <h3 className="justify-self-end sm:justify-self-start">Status</h3>
             </div>
             {orderReport.map((customer, idx) => (
               <OrderCustomer key={idx} customer={customer} />
@@ -240,10 +240,10 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col flex-shrink-0 w-4/12 sticky top-0 bg-transparent h-screen p-6 overflow-y-scroll">
-        <div className="bg-base-dark-2 rounded p-6 mb-5">
+      <div className="flex flex-col md:flex-row lg:flex-col md:justify-between flex-shrink-0 w-full lg:w-4/12 sticky top-0 bg-transparent h-screen p-4 sm:p-6 overflow-y-scroll">
+        <div className="bg-base-dark-2 rounded p-6 mb-5 md:w-1/2 lg:w-full md:mr-4 lg:mr-0 h-fit">
           <div className="flex justify-between items-center pb-6 border-b border-base-dark-line">
-            <h2>Most Ordered</h2>
+            <h2 className="text-lg">Most Ordered</h2>
             <Select
               options={["Today", "Tomorrow", "Yesterday"]}
               selected="Today"
@@ -261,17 +261,17 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-base-dark-2 rounded p-6">
+        <div className="bg-base-dark-2 rounded p-6 md:w-1/2 lg:w-full md:ml-4 lg:ml-0 h-fit">
           <div className="flex justify-between items-center pb-6 border-b border-base-dark-line mb-7">
-            <h2>Most Ordered</h2>
+            <h2 className="text-lg">Most Ordered</h2>
             <Select
               options={["Today", "Tomorrow", "Yesterday"]}
               selected="Today"
             />
           </div>
-          <div className="flex">
+          <div className="flex flex-col md:flex-row">
             <CircleProgress percentage={random.percentage} />
-            <div className="flex flex-col ml-5">
+            <div className="flex flex-col mt-3 sm:mt-0 sm:ml-5">
               <div className="flex mb-3">
                 <div className="w-5 h-5 bg-accent-red rounded-full mr-3 mt-1"></div>
                 <div>
