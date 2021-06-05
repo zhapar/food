@@ -1,14 +1,12 @@
-import Sidebar from './features/sidebar'
-import { Switch, Route } from 'react-router-dom'
-import Payment from './features/payment/payment'
-import Button from './components/Button'
-import Input from './components/Input'
-import SettingItem from './components/SettingItem'
-import Select from './components/Select'
-import DishCard from './components/DishCard'
-import CardDishFull from './components/CardDishFull'
-import CartItem from './components/CartItem'
-import Home from './pages/Home'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+
+//featutes
+import Sidebar from "./features/sidebar";
+
+//pages
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -19,10 +17,11 @@ function App() {
       <main className="flex-grow h-full overflow-auto overflow-x-hidden relative">
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/dashboard" exact component={Dashboard} />
         </Switch>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
