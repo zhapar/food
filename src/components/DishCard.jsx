@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const DishCard = ({ image, name, price, available }) => {
   return (
-    <div className="h-full w-full relative flex sm:flex-col items-center justify-center group sm:px-9">
-      <img src={image} alt={name} className="h-3/4 sm:h-auto" />
+    <div className="h-full w-full relative flex sm:flex-col items-center justify-center group pr-2 sm:px-9">
+      <img src={image} alt={name} className="h-24 sm:h-auto" />
       <div className="flex flex-col items-center">
         <Link
           to={`/dish/${name}`}

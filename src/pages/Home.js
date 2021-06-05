@@ -3,6 +3,7 @@ import Input from '../components/Input'
 import cn from 'classnames'
 import Select from '../components/Select'
 import DishCard from '../components/DishCard'
+import { UilShoppingCart, UilArrowLeft } from '@iconscout/react-unicons'
 
 import dish1 from '../images/dish-1.png'
 import dish2 from '../images/dish-2.png'
@@ -86,11 +87,14 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('Hot Dishes')
   const [activeOrderButton, setActiveOrderButton] = useState('Dine In')
 
+  const [orderTab, setOrderTab] = useState(false)
+
+  console.log(orderTab)
   return (
     <div className="flex">
       <div className="p-4 sm:p-6 flex flex-col flex-grow">
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 justify-between items-center">
-          <div className="flex flex-col">
+          <div className="flex flex-col text-center sm:text-left">
             <h1>Jaegar Resto</h1>
             <span className="text-lg text-text-lighter">
               Tuesday, 2 Feb 2021
@@ -102,6 +106,11 @@ export default function Home() {
               type="search"
               className="text-base"
             />
+          </div>
+          <div
+            className="absolute left-60 p-2 bg-base-dark-2 rounded sm:hidden"
+            onClick={() => setOrderTab(true)}>
+            <UilShoppingCart />
           </div>
         </div>
         <div className="flex space-x-8 border-b border-base-dark-line mt-3 flex-wrap">
@@ -137,8 +146,18 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col flex-shrink-0 w-4/12 sticky top-0 bg-base-dark-2 h-screen p-6 ">
-        <h2>Orders #34562</h2>
+      <div
+        className={cn(
+          'fixed right-0  flex flex-col flex-shrink-0 sm:w-4/12 sm:sticky top-0 bg-base-dark-2 h-screen p-6 transform w-full transition-transform duration-300',
+          {
+            'translate-x-full sm:translate-x-0': orderTab === false,
+            'translate-x-0': orderTab === true,
+          }
+        )}>
+        <div className="flex">
+          <UilArrowLeft />
+          <h2>Orders #34562</h2>
+        </div>
         <div className="flex space-x-3 mt-6">
           {['Dine In', 'To Go', 'Delivery'].map((btn) => (
             <Button
@@ -149,7 +168,7 @@ export default function Home() {
             </Button>
           ))}
         </div>
-        <div className="flex w-full space-x-4 my-6 pb-6 border-b border-base-dark-line">
+        <div className="flex w-full space-x-4 my-6 pb-6 border-b border-base-dark-line pr-2">
           <div className="flex justify-between flex-grow">
             <span className="text-lg font-semibold">Item</span>
             <span className="text-lg font-semibold mr-3.5">Qty</span>
@@ -158,7 +177,7 @@ export default function Home() {
             <span className="text-lg font-semibold">Price</span>
           </div>
         </div>
-        <div className="flex flex-col space-y-6 overflow-hidden">
+        <div className="flex flex-col space-y-6 overflow-auto pr-2 pb-2 ">
           {dishes.map((dish, idx) => (
             <div>
               <CartItem {...dish} key={idx} />
