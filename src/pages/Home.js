@@ -272,7 +272,7 @@ export default function Home() {
               <h1>Payment</h1>
               <p className="text-text-light">3 payment method available</p>
             </div>
-            <div className="flex flex-col mt-4">
+            <div className="flex flex-col mt-4 h-full">
               <h2>Payment Method</h2>
               <div className="flex space-x-2 mt-3">
                 {['card', 'paypal', 'cash'].map((cardType, idx) => (
@@ -319,7 +319,7 @@ export default function Home() {
                 </div>
                 <Input placeholder="140" label="Table no." />
               </div>
-              <div className="flex mt-10 space-x-2">
+              <div className="flex mt-auto space-x-2">
                 <Button onClick={() => setConfirmPayment(false)}>Cancel</Button>
                 <Button type="primary">Confirm Payment</Button>
               </div>
