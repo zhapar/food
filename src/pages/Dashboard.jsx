@@ -1,207 +1,207 @@
-import React, { useState, useEffect } from "react";
-import Input from "../components/Input";
-import cn from "classnames";
-import Select from "../components/Select";
-import DishCard from "../components/DishCard";
+import React, { useState, useEffect } from 'react'
+import Input from '../components/Input'
+import cn from 'classnames'
+import Select from '../components/Select'
+import DishCard from '../components/DishCard'
 
 //icons
-import { ReactComponent as Print } from "../icons/print.svg";
-import { ReactComponent as Eren } from "../icons/customers/eren.svg";
-import { ReactComponent as Bertold } from "../icons/customers/berutoruto.svg";
-import { ReactComponent as Hanji } from "../icons/customers/hanji.svg";
-import { ReactComponent as Levi } from "../icons/customers/levi.svg";
-import { ReactComponent as Reiner } from "../icons/customers/reiner.svg";
-import { ReactComponent as Coin } from "../icons/coin.svg";
-import { ReactComponent as Order } from "../icons/order.svg";
-import { ReactComponent as Option } from "../icons/option.svg";
+import { ReactComponent as Print } from '../icons/print.svg'
+import { ReactComponent as Eren } from '../icons/customers/eren.svg'
+import { ReactComponent as Bertold } from '../icons/customers/berutoruto.svg'
+import { ReactComponent as Hanji } from '../icons/customers/hanji.svg'
+import { ReactComponent as Levi } from '../icons/customers/levi.svg'
+import { ReactComponent as Reiner } from '../icons/customers/reiner.svg'
+import { ReactComponent as Coin } from '../icons/coin.svg'
+import { ReactComponent as Order } from '../icons/order.svg'
+import { ReactComponent as Option } from '../icons/option.svg'
 
-import dish1 from "../images/dish-1.png";
-import dish2 from "../images/dish-2.png";
-import dish3 from "../images/dish-3.png";
-import dish4 from "../images/dish-4.png";
-import dish5 from "../images/dish-5.png";
-import dish6 from "../images/dish-6.png";
-import dish7 from "../images/dish-7.png";
-import dish8 from "../images/dish-8.png";
-import dish9 from "../images/dish-9.png";
-import Button from "../components/Button";
-import CartItem from "../components/CartItem";
-import SalesRateCard from "../components/SalesRateCard";
-import Status from "../components/Status";
-import OrderCustomer from "../components/OrderCustomer";
-import MostOrderedItem from "../components/MostOrderedItem";
-import CircleProgress from "../components/CircleProgress";
+import dish1 from '../images/dish-1.png'
+import dish2 from '../images/dish-2.png'
+import dish3 from '../images/dish-3.png'
+import dish4 from '../images/dish-4.png'
+import dish5 from '../images/dish-5.png'
+import dish6 from '../images/dish-6.png'
+import dish7 from '../images/dish-7.png'
+import dish8 from '../images/dish-8.png'
+import dish9 from '../images/dish-9.png'
+import Button from '../components/Button'
+import CartItem from '../components/CartItem'
+import SalesRateCard from '../components/SalesRateCard'
+import Status from '../components/Status'
+import OrderCustomer from '../components/OrderCustomer'
+import MostOrderedItem from '../components/MostOrderedItem'
+import CircleProgress from '../components/CircleProgress'
 
 const tabs = [
-  "Hot Dishes",
-  "Cold Dishes",
-  "Soup",
-  "Grill",
-  "Appetizer",
-  "Dessert",
-];
+  'Hot Dishes',
+  'Cold Dishes',
+  'Soup',
+  'Grill',
+  'Appetizer',
+  'Dessert',
+]
 
 const dishes = [
   {
-    name: "Spicy seasoned seafood noodles",
+    name: 'Spicy seasoned seafood noodles',
     price: 2.29,
     available: 20,
     image: dish1,
     orders: 720,
   },
   {
-    name: "Salted Pasta with mushroom sauce",
+    name: 'Salted Pasta with mushroom sauce',
     price: 2.69,
     available: 11,
     image: dish2,
     orders: 440,
   },
   {
-    name: "Beef dumpling in hot and sour soup",
+    name: 'Beef dumpling in hot and sour soup',
     price: 2.99,
     available: 16,
     image: dish3,
     orders: 160,
   },
   {
-    name: "Healthy noodle with spinach leaf",
+    name: 'Healthy noodle with spinach leaf',
     price: 3.29,
     available: 23,
     image: dish4,
     orders: 220,
   },
   {
-    name: "Hot spicy fried rice with omelet",
+    name: 'Hot spicy fried rice with omelet',
     price: 3.49,
     available: 13,
     image: dish5,
     orders: 620,
   },
   {
-    name: "Spicy instant noodle with special omelette",
+    name: 'Spicy instant noodle with special omelette',
     price: 3.59,
     available: 17,
     image: dish6,
     orders: 120,
   },
   {
-    name: "Healthy noodle with spinach leaf",
+    name: 'Healthy noodle with spinach leaf',
     price: 3.29,
     available: 22,
     image: dish7,
     orders: 60,
   },
   {
-    name: "Hot spicy fried rice with omelet",
+    name: 'Hot spicy fried rice with omelet',
     price: 3.49,
     available: 13,
     image: dish8,
     orders: 50,
   },
   {
-    name: "Spicy instant noodle with special omelette",
+    name: 'Spicy instant noodle with special omelette',
     price: 3.59,
     available: 17,
     image: dish9,
     orders: 10,
   },
-];
+]
 
 const orderReport = [
   {
-    name: "Eren Jaegar",
-    menu: "Salted Pasta with mushroom sauce",
+    name: 'Eren Jaegar',
+    menu: 'Salted Pasta with mushroom sauce',
     payment: 125,
-    status: "Preparing",
+    status: 'Preparing',
     icon: <Reiner />,
-    bgColor: "bg-accent-red",
+    bgColor: 'bg-accent-red',
   },
   {
-    name: "Reiner Braunn",
-    menu: "Beef dumping in a Hot and Sour soup",
+    name: 'Reiner Braunn',
+    menu: 'Beef dumping in a Hot and Sour soup',
     payment: 235,
-    status: "Pending",
+    status: 'Pending',
     icon: <Eren />,
-    bgColor: "bg-secondary",
+    bgColor: 'bg-secondary',
   },
   {
-    name: "Hanji Zoe",
-    menu: "Hot spicy fried rice with omlete",
+    name: 'Hanji Zoe',
+    menu: 'Hot spicy fried rice with omlete',
     payment: 300,
-    status: "Preparing",
+    status: 'Preparing',
     icon: <Hanji />,
-    bgColor: "bg-primary",
+    bgColor: 'bg-primary',
   },
   {
-    name: "Levi Ackerman",
-    menu: "Salted Pasta with mushroom sauce",
+    name: 'Levi Ackerman',
+    menu: 'Salted Pasta with mushroom sauce',
     payment: 625,
-    status: "Completed",
+    status: 'Completed',
     icon: <Levi />,
-    bgColor: "bg-accent-green",
+    bgColor: 'bg-accent-green',
   },
   {
-    name: "Bertold Hzkto",
-    menu: "Soup with mushroom sauce",
+    name: 'Bertold Hzkto',
+    menu: 'Soup with mushroom sauce',
     payment: 45,
-    status: "Completed",
+    status: 'Completed',
     icon: <Bertold />,
-    bgColor: "bg-accent-purple",
+    bgColor: 'bg-accent-purple',
   },
-];
+]
 
 const salesRate = [
   {
-    price: "22,220.00",
-    category: "Total Revenue",
-    precentage: "32.32",
+    price: '22,220.00',
+    category: 'Total Revenue',
+    precentage: '32.32',
     icon: (
       <Coin
         className="text-secondary stroke-current"
-        style={{ width: "30px", height: "30px" }}
+        style={{ width: '30px', height: '30px' }}
       />
     ),
   },
   {
-    price: "22,320",
-    category: "Total Dish Order",
-    precentage: "-12.32",
+    price: '22,320',
+    category: 'Total Dish Order',
+    precentage: '-12.32',
     icon: (
       <Order
         className="text-primary fill-current p-1"
-        style={{ width: "30px", height: "30px" }}
+        style={{ width: '30px', height: '30px' }}
       />
     ),
   },
   {
-    price: "3,220",
-    category: "Total Customer",
-    precentage: "2.32",
+    price: '3,220',
+    category: 'Total Customer',
+    precentage: '2.32',
     icon: (
       <Option
         className="text-secondary fill-current p-1"
-        style={{ width: "30px", height: "30px" }}
+        style={{ width: '30px', height: '30px' }}
       />
     ),
   },
-];
+]
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("Hot Dishes");
-  const [activeOrderButton, setActiveOrderButton] = useState("Dine In");
+  const [activeTab, setActiveTab] = useState('Hot Dishes')
+  const [activeOrderButton, setActiveOrderButton] = useState('Dine In')
 
   const [random, setRandom] = useState({
     percentage: 0,
-    colour: "hsl(0, 0%, 0%)",
-  });
+    colour: 'hsl(0, 0%, 0%)',
+  })
 
   const generateRandomValues = () => {
-    const rand = (n) => Math.random() * n;
+    const rand = (n) => Math.random() * n
     setRandom({
       percentage: rand(100),
       colour: `hsl(${rand(360)}, ${rand(50) + 50}%, ${rand(30) + 20}%)`,
-    });
-  };
+    })
+  }
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -240,12 +240,12 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row lg:flex-col md:justify-between flex-shrink-0 w-full lg:w-4/12 sticky top-0 bg-transparent h-screen p-4 sm:p-6 overflow-y-scroll">
+      <div className="flex flex-col md:flex-row lg:flex-col md:justify-between flex-shrink-0 w-full lg:w-4/12 top-0 bg-transparent h-screen p-4 sm:p-6">
         <div className="bg-base-dark-2 rounded p-6 mb-5 md:w-1/2 lg:w-full md:mr-4 lg:mr-0 h-fit">
           <div className="flex justify-between items-center pb-6 border-b border-base-dark-line">
             <h2 className="text-lg">Most Ordered</h2>
             <Select
-              options={["Today", "Tomorrow", "Yesterday"]}
+              options={['Today', 'Tomorrow', 'Yesterday']}
               selected="Today"
             />
           </div>
@@ -265,7 +265,7 @@ const Dashboard = () => {
           <div className="flex justify-between items-center pb-6 border-b border-base-dark-line mb-7">
             <h2 className="text-lg">Most Ordered</h2>
             <Select
-              options={["Today", "Tomorrow", "Yesterday"]}
+              options={['Today', 'Tomorrow', 'Yesterday']}
               selected="Today"
             />
           </div>
@@ -298,7 +298,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

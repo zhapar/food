@@ -1,12 +1,12 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
 //featutes
-import Sidebar from "./features/sidebar";
+import Sidebar from './features/sidebar'
 
 //pages
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
@@ -14,14 +14,14 @@ function App() {
       <header className="sticky top-0 h-full">
         <Sidebar />
       </header>
-      <main className="flex-grow h-full overflow-auto overflow-x-hidden relative">
+      <main className="flex-grow h-full overflow-auto ">
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/dashboard" exact component={Dashboard} />
         </Switch>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
